@@ -24,8 +24,13 @@ AFRAME.registerSystem('main', {
             var targetElClass = targetEl.getAttribute('class');
 
             if(targetElClass === 'hotspot'){
-                sceneEl.pause();
+                // sceneEl.pause();
                 self.$modal.modal('show');
+                camera.setAttribute('orbit-controls', {
+                  rotateTo: targetEl.getAttribute('rotateToPosition')
+                })
+                console.log(targetEl.getAttribute('rotateToPosition'))
+                console.log(camera.getAttribute('orbit-controls'))
             }
         });
 
@@ -81,4 +86,3 @@ AFRAME.registerSystem('main', {
         }
     }
 });
-
